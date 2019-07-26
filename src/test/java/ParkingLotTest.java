@@ -23,7 +23,6 @@ public class ParkingLotTest {
         ParkingLot park = new ParkingLot(1);
         Car car = new Car();
         park.park(car);
-        car.setHasTicket(true);
         assertEquals("Pick Up Success!", park.pickUp(car));
     }
 

@@ -9,6 +9,7 @@ public class ParkingLot {
     public String park(Car car) {
         if (volume > existCarport) {
             existCarport ++;
+            car.setHasTicket(true);
             return "Parking Success!";
         } else {
             return "Parking Fail!";

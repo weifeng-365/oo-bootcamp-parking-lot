@@ -9,3 +9,6 @@ public class Car {
         return this.hasTicket;
     }
 }
+
+
+
