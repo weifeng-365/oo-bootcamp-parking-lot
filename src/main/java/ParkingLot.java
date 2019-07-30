@@ -1,27 +1,30 @@
+import java.util.HashMap;
+
 public class ParkingLot {
     private int volume;
     private int existCarport;
+    private HashMap<ParkingLotReceipt, Car> parkingLot = new HashMap<>();
+
     public ParkingLot(int volume) {
         this.volume = volume;
         this.existCarport = 0;
     }
 
-    public String park(Car car) {
+    public ParkingLotReceipt park(Car car) {
         if (volume > existCarport) {
-            existCarport ++;
-            car.setHasTicket(true);
-            return "Parking Success!";
-        } else {
-            return "Parking Fail!";
+            existCarport++;
+            ParkingLotReceipt receipt = new ParkingLotReceipt();
+            parkingLot.put(receipt, car);
+            return receipt;
         }
+        throw new ParkingLotException("ParkingLot is full!");
     }
 
-    public String pickUp(Car car) {
-        if (car.getHasTicket()) {
-            return "Pick Up Success!";
+    public Car pickUp(ParkingLotReceipt receipt) {
+        if(parkingLot.containsKey(receipt)) {
+            return parkingLot.remove(receipt);
         }
-        else {
-            return "Pick Up Fail!";
-        }
+
+        throw new ParkingLotReceiptException("Invalid receipt!");
     }
 }
