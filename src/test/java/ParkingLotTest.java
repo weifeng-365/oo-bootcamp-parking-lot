@@ -52,6 +52,6 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(1);
         parkingLot.park(new Car());
 
-        parkingLot.pickUp(new ParkingLotReceipt());
+        parkingLot.pickUp(new ParkingLotReceipt(1));
     }
 }
