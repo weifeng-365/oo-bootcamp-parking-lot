@@ -1,8 +1,8 @@
 import java.util.List;
 
-public class Boy {
+public class ParkingBoy {
     public List<ParkingLot> parkingLots;
-    public Boy(List<ParkingLot> parkingLots) {
+    public ParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
 

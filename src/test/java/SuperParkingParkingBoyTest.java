@@ -4,12 +4,12 @@ import org.junit.Test;
 import java.util.Arrays;
 import static org.junit.Assert.*;
 
-public class SuperParkingBoyTest {
+public class SuperParkingParkingBoyTest {
     @Test
     public void shouldParkedSuccessIn2ndParkingLotWhenParkACarGivenASuperBoyAndTwoParkingLotsWith1stHasTwoLotsAndOneEmptyLotAnd2ndHasTwoLotsAndTwoEmptyLots() {
         ParkingLot parkingLot1 = new ParkingLot(2);
         ParkingLot parkingLot2 = new ParkingLot(2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
+        SuperParkingParkingBoy superParkingBoy = new SuperParkingParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
         superParkingBoy.park(new Car());
 
         ParkingLotReceipt receipt = superParkingBoy.park(new Car());
@@ -20,7 +20,7 @@ public class SuperParkingBoyTest {
     public void shouldParkedSuccessIn1stParkingLotWhenParkACarGivenASuperBoyAndTwoParkingLotsWith1stHasOneLotAndOneEmptyLotAnd2ndHasTwoLotsAndOneEmptyLot(){
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
+        SuperParkingParkingBoy superParkingBoy = new SuperParkingParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
 
         ParkingLotReceipt receipt1 = superParkingBoy.park(new Car());
         superParkingBoy.park(new Car());
@@ -34,7 +34,7 @@ public class SuperParkingBoyTest {
     public void shouldParkedFailedWhenParkACarGivenASuperBoyAndTwoParkingLotsWithBothTwoParkingLotsHaveNoLots(){
         ParkingLot parkingLot1 = new ParkingLot(0);
         ParkingLot parkingLot2 = new ParkingLot(0);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
+        SuperParkingParkingBoy superParkingBoy = new SuperParkingParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
 
         superParkingBoy.park(new Car());
     }
@@ -42,7 +42,7 @@ public class SuperParkingBoyTest {
     @Test
     public void shouldPickUpSuccessWhenPickUpTheCarWithReceiptGivenASuperBoyWithAParkingLotReceipt() {
         ParkingLot parkingLot = new ParkingLot(1);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(Arrays.asList(parkingLot));
+        SuperParkingParkingBoy superParkingBoy = new SuperParkingParkingBoy(Arrays.asList(parkingLot));
 
         Car myCar = new Car();
         System.out.println(myCar);
@@ -56,7 +56,7 @@ public class SuperParkingBoyTest {
     @Test(expected = ParkingLotReceiptException.class)
     public void shouldPickUpFailedWhenPickUpACarGivenASuperBoyWithAnInvalidReceipt(){
         ParkingLot parkingLot = new ParkingLot(1);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(Arrays.asList(parkingLot));
+        SuperParkingParkingBoy superParkingBoy = new SuperParkingParkingBoy(Arrays.asList(parkingLot));
 
         superParkingBoy.pickUp(new ParkingLotReceipt());
     }

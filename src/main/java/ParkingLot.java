@@ -46,5 +46,7 @@ public class ParkingLot {
         return volume - existCarport;
     }
 
-    public double getLotEmptyRate() { return this.getEmptyLots() / volume; }
+    public double getLotEmptyRate() {
+        return volume > 0 ? this.getEmptyLots() / volume : 0;
+    }
 }
