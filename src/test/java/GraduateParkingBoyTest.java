@@ -15,17 +15,17 @@ public class GraduateParkingBoyTest {
         GraduateParkingBoy boy = new GraduateParkingBoy(Arrays.asList(parkingLot1,parkingLot2));
         ParkingLotReceipt receipt = boy.park(new Car());
         assertNotNull(receipt);
-        assertEquals(1, receipt.getParkingLotNo());
     }
     @Test
     public void shouldReturnParkingSuccessWhenParkingTwoCarsGivenABoyAndTwoParkingLotsWithVolumeIs1(){
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(1);
         GraduateParkingBoy boy = new GraduateParkingBoy(Arrays.asList(parkingLot1,parkingLot2));
+
         boy.park(new Car());
         ParkingLotReceipt receipt2 = boy.park(new Car());
+
         assertNotNull(receipt2);
-        assertEquals(2, receipt2.getParkingLotNo());
     }
 
     @Test
@@ -33,9 +33,11 @@ public class GraduateParkingBoyTest {
         ParkingLot parkingLot1 = new ParkingLot(2);
         ParkingLot parkingLot2 = new ParkingLot(2);
         GraduateParkingBoy boy = new GraduateParkingBoy(Arrays.asList(parkingLot1,parkingLot2));
+
         ParkingLotReceipt receipt1 = boy.park(new Car());
-        assertEquals(1,receipt1.getParkingLotNo());
         ParkingLotReceipt receipt2 = boy.park(new Car());
+
+        assertEquals(1,receipt1.getParkingLotNo());
         assertEquals(1,receipt2.getParkingLotNo());
     }
 
@@ -44,6 +46,7 @@ public class GraduateParkingBoyTest {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(1);
         GraduateParkingBoy boy = new GraduateParkingBoy(Arrays.asList(parkingLot1,parkingLot2));
+
         boy.park(new Car());
         boy.park(new Car());
         boy.park(new Car());
@@ -54,6 +57,7 @@ public class GraduateParkingBoyTest {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(1);
         GraduateParkingBoy boy = new GraduateParkingBoy(Arrays.asList(parkingLot1,parkingLot2));
+
         Car myCar = new Car();
         ParkingLotReceipt receipt = boy.park(myCar);
 
@@ -72,12 +76,12 @@ public class GraduateParkingBoyTest {
     @Test
     public void shouldReturnSuccessWhenParkThreeCarsPickUpOneCarParkOneCarGivenTwoParkingLotWithVolumeIs2() {
         ParkingLot parkingLot1 = new ParkingLot(2);
-        ParkingLot parkingLot2 = new ParkingLot(3);
+        ParkingLot parkingLot2 = new ParkingLot(2);
         GraduateParkingBoy boy = new GraduateParkingBoy(Arrays.asList(parkingLot1,parkingLot2));
+
         ParkingLotReceipt receipt = boy.park(new Car());
         boy.park(new Car());
         boy.park(new Car());
-
         boy.pickUp(receipt);
 
         ParkingLotReceipt newReceipt = boy.park(new Car());

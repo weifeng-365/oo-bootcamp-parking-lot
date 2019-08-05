@@ -31,6 +31,7 @@ public class ParkingLot {
 
     public Car pickUp(ParkingLotReceipt receipt) {
         if(parkingLot.containsKey(receipt)) {
+            existCarport--;
             return parkingLot.remove(receipt);
         }
 
@@ -40,4 +41,10 @@ public class ParkingLot {
     public int getParkingLotNo() {
         return parkingLotNo;
     }
+
+    public int getEmptyLots() {
+        return volume - existCarport;
+    }
+
+    public double getLotEmptyRate() { return this.getEmptyLots() / volume; }
 }
